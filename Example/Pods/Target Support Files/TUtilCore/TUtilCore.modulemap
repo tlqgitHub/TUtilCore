@@ -1,0 +1,6 @@
+framework module TUtilCore {
+  umbrella header "TUtilCore-umbrella.h"
+
+  export *
+  module * { export * }
+}

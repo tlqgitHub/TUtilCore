@@ -1,0 +1,6 @@
+framework module Pods_TUtilCore_Example {
+  umbrella header "Pods-TUtilCore_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
