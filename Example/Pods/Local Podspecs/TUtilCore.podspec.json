@@ -1,8 +1,8 @@
 {
   "name": "TUtilCore",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "summary": "TUtilCore.项目公用基础库",
-  "swift_versions": "4.0",
+  "swift_versions": "5.0",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/tlqgitHub/TUtilCore",
   "license": {
@@ -14,10 +14,10 @@
   },
   "source": {
     "git": "https://github.com/tlqgitHub/TUtilCore.git",
-    "tag": "0.4.0"
+    "tag": "0.5.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.0"
   },
   "source_files": "TUtilCore/**/*.{h,swift}",
   "resource_bundles": {
@@ -28,47 +28,47 @@
   "frameworks": "UIKit",
   "dependencies": {
     "ModelProtocol": [
-      "~> 0.0.1"
+
     ],
     "EmptyDataView": [
-      "~> 0.0.1"
+
     ],
     "RxSwift": [
-      "~> 4.1.2"
+
     ],
     "RxCocoa": [
-      "~> 4.1.2"
+
     ],
     "CryptoSwift": [
-      "~> 0.8.3"
+
     ],
     "SwiftyUserDefaults": [
-      "~> 3.0.1"
+
     ],
     "NVActivityIndicatorView": [
-      "~> 4.3.0"
+
     ],
     "SnapKit": [
-      "~> 4.0.0"
+
     ],
     "Toast-Swift": [
-      "~> 3.0.1"
+
     ],
     "MJRefresh": [
-      "~> 3.1.15.3"
+
     ],
     "Kingfisher": [
-      "~> 4.6.4"
+
     ],
     "MBProgressHUD": [
-      "~> 1.1.0"
+
     ],
     "URLNavigator": [
-      "~> 2.0.4"
+
     ],
     "WebViewJavascriptBridge": [
-      "~> 6.0.3"
+
     ]
   },
-  "swift_version": "4.0"
+  "swift_version": "5.0"
 }

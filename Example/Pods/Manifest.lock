@@ -24,21 +24,21 @@ PODS:
   - SwiftyJSON (4.0.0)
   - SwiftyUserDefaults (3.0.1)
   - Toast-Swift (3.0.1)
-  - TUtilCore (0.4.0):
-    - CryptoSwift (~> 0.8.3)
-    - EmptyDataView (~> 0.0.1)
-    - Kingfisher (~> 4.6.4)
-    - MBProgressHUD (~> 1.1.0)
-    - MJRefresh (~> 3.1.15.3)
-    - ModelProtocol (~> 0.0.1)
-    - NVActivityIndicatorView (~> 4.3.0)
-    - RxCocoa (~> 4.1.2)
-    - RxSwift (~> 4.1.2)
-    - SnapKit (~> 4.0.0)
-    - SwiftyUserDefaults (~> 3.0.1)
-    - Toast-Swift (~> 3.0.1)
-    - URLNavigator (~> 2.0.4)
-    - WebViewJavascriptBridge (~> 6.0.3)
+  - TUtilCore (0.5.0):
+    - CryptoSwift
+    - EmptyDataView
+    - Kingfisher
+    - MBProgressHUD
+    - MJRefresh
+    - ModelProtocol
+    - NVActivityIndicatorView
+    - RxCocoa
+    - RxSwift
+    - SnapKit
+    - SwiftyUserDefaults
+    - Toast-Swift
+    - URLNavigator
+    - WebViewJavascriptBridge
   - URLNavigator (2.0.6)
   - WebViewJavascriptBridge (6.0.3)
 
@@ -84,7 +84,7 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   SwiftyUserDefaults: 3d273b1739b68ada3145dc754a70ec775bc5c8be
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
-  TUtilCore: 3d7bad53783459723cd3e3b8ca3a49d18dc3a400
+  TUtilCore: 93259b4ee8df17d0b60f0462ce2e908993578341
   URLNavigator: 2357a32f3b3787b748bf87deb927761f8b0f7f53
   WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
 
