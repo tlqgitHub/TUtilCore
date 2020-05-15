@@ -15,7 +15,7 @@
         public typealias Delegate = NSTextStorageDelegate
     }
 
-    open class RxTextStorageDelegateProxy
+    public class RxTextStorageDelegateProxy
         : DelegateProxy<NSTextStorage, NSTextStorageDelegate>
         , DelegateProxyType 
         , NSTextStorageDelegate {

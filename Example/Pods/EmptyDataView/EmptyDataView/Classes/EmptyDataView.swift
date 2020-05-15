@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 
 /// 列表数据为空时显示的界面
-open class EmptyDataView: UIView {
+public class EmptyDataView: UIView {
     
     /// UI控件
     var logo_ImgV = UIImageView()
@@ -162,10 +162,10 @@ open class EmptyDataView: UIView {
             superview?.perform(selector, with: button, afterDelay: 0)
         }
     }
-    open override func awakeFromNib() {
+    public override func awakeFromNib() {
         setupSubviews()
     }
-    open override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         
     }
     public override init(frame: CGRect) {

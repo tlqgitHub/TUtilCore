@@ -10,7 +10,7 @@ import Foundation
 import SnapKit
 import RxSwift
 
-open class PlaceholderTextView : UITextView {
+class PlaceholderTextView : UITextView {
     
     public  let placeholderLabel: UILabel = UILabel()
     @IBInspectable public var placeholder: String = "" {
@@ -25,13 +25,13 @@ open class PlaceholderTextView : UITextView {
             placeholderLabel.textColor = placeholderColor
         }
     }
-    override open var font: UIFont! {
+    override var font: UIFont! {
         didSet {
             placeholderLabel.font = font
         }
     }
     
-    override open var textAlignment: NSTextAlignment {
+    override var textAlignment: NSTextAlignment {
         didSet {
             placeholderLabel.textAlignment = textAlignment
         }
@@ -49,7 +49,7 @@ open class PlaceholderTextView : UITextView {
     func commonInit() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(PlaceholderTextView.textDidChange),
-                                               name: NSNotification.Name.UITextViewTextDidChange,
+                                               name: NSNotification.Name("UITextViewTextDidChange"),
                                                object: nil)
         
         placeholderLabel.font = font
@@ -67,7 +67,7 @@ open class PlaceholderTextView : UITextView {
     }
     
     
-    override open var text: String! {
+    override public var text: String! {
         didSet {
             textDidChange()
         }

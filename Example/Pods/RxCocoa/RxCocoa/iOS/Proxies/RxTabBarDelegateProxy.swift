@@ -16,7 +16,7 @@ extension UITabBar: HasDelegate {
 }
 
 /// For more information take a look at `DelegateProxyType`.
-open class RxTabBarDelegateProxy
+public class RxTabBarDelegateProxy
     : DelegateProxy<UITabBar, UITabBarDelegate>
     , DelegateProxyType 
     , UITabBarDelegate {
@@ -36,12 +36,12 @@ open class RxTabBarDelegateProxy
     }
 
     /// For more information take a look at `DelegateProxyType`.
-    open class func currentDelegate(for object: ParentObject) -> UITabBarDelegate? {
+    public class func currentDelegate(for object: ParentObject) -> UITabBarDelegate? {
         return object.delegate
     }
 
     /// For more information take a look at `DelegateProxyType`.
-    open class func setCurrentDelegate(_ delegate: UITabBarDelegate?, to object: ParentObject) {
+    public class func setCurrentDelegate(_ delegate: UITabBarDelegate?, to object: ParentObject) {
         object.delegate = delegate
     }
 }

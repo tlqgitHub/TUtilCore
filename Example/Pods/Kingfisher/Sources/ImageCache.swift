@@ -73,7 +73,7 @@ public enum CacheType {
 /// While a default image cache object will be used if you prefer the extension methods of Kingfisher, 
 /// you can create your own cache object and configure it as your need. You could use an `ImageCache`
 /// object to manipulate memory and disk cache for Kingfisher.
-open class ImageCache {
+public class ImageCache {
 
     //Memory
     fileprivate let memoryCache = NSCache<NSString, AnyObject>()
@@ -82,7 +82,7 @@ open class ImageCache {
     /// all cached images in memory.
     /// Default is unlimited. Memory cache will be purged automatically when a 
     /// memory warning notification is received.
-    open var maxMemoryCost: UInt = 0 {
+    public var maxMemoryCost: UInt = 0 {
         didSet {
             self.memoryCache.totalCostLimit = Int(maxMemoryCost)
         }
@@ -93,20 +93,20 @@ open class ImageCache {
     fileprivate var fileManager: FileManager!
     
     ///The disk cache location.
-    open let diskCachePath: String
+    public let diskCachePath: String
   
     /// The default file extension appended to cached files.
-    open var pathExtension: String?
+    public var pathExtension: String?
     
     /// The longest time duration in second of the cache being stored in disk. 
     /// Default is 1 week (60 * 60 * 24 * 7 seconds).
     /// Setting this to a negative value will make the disk cache never expiring.
-    open var maxCachePeriodInSecond: TimeInterval = 60 * 60 * 24 * 7 //Cache exists for 1 week
+    public var maxCachePeriodInSecond: TimeInterval = 60 * 60 * 24 * 7 //Cache exists for 1 week
     
     /// The largest disk size can be taken for the cache. It is the total 
     /// allocated size of cached files in bytes.
     /// Default is no limit.
-    open var maxDiskCacheSize: UInt = 0
+    public var maxDiskCacheSize: UInt = 0
     
     fileprivate let processQueue: DispatchQueue
     
@@ -188,7 +188,7 @@ open class ImageCache {
     - parameter toDisk:            Whether this image should be cached to disk or not. If false, the image will be only cached in memory.
     - parameter completionHandler: Called when store operation completes.
     */
-    open func store(_ image: Image,
+    public func store(_ image: Image,
                       original: Data? = nil,
                       forKey key: String,
                       processorIdentifier identifier: String = "",
@@ -238,7 +238,7 @@ open class ImageCache {
     - parameter fromDisk:          Whether this image should be removed from disk or not. If false, the image won't be removed from disk.
     - parameter completionHandler: Called when removal operation completes.
     */
-    open func removeImage(forKey key: String,
+    public func removeImage(forKey key: String,
                           processorIdentifier identifier: String = "",
                           fromMemory: Bool = true,
                           fromDisk: Bool = true,
@@ -284,7 +284,7 @@ open class ImageCache {
     - returns: The retrieving task.
     */
     @discardableResult
-    open func retrieveImage(forKey key: String,
+    public func retrieveImage(forKey key: String,
                                options: KingfisherOptionsInfo?,
                      completionHandler: ((Image?, CacheType) -> Void)?) -> RetrieveImageDiskTask?
     {
@@ -362,7 +362,7 @@ open class ImageCache {
                          stored with a specified `ImageProcessor`, pass the processor in the option too.
     - returns: The image object if it is cached, or `nil` if there is no such key in the cache.
     */
-    open func retrieveImageInMemoryCache(forKey key: String, options: KingfisherOptionsInfo? = nil) -> Image? {
+    public func retrieveImageInMemoryCache(forKey key: String, options: KingfisherOptionsInfo? = nil) -> Image? {
         
         let options = options ?? KingfisherEmptyOptionsInfo
         let computedKey = key.computedKey(with: options.processor.identifier)
@@ -379,7 +379,7 @@ open class ImageCache {
 
     - returns: The image object if it is cached, or `nil` if there is no such key in the cache.
     */
-    open func retrieveImageInDiskCache(forKey key: String, options: KingfisherOptionsInfo? = nil) -> Image? {
+    public func retrieveImageInDiskCache(forKey key: String, options: KingfisherOptionsInfo? = nil) -> Image? {
         
         let options = options ?? KingfisherEmptyOptionsInfo
         let computedKey = key.computedKey(with: options.processor.identifier)
@@ -402,7 +402,7 @@ open class ImageCache {
     
     - parameter completionHander: Called after the operation completes.
     */
-    open func clearDiskCache(completion handler: (()->())? = nil) {
+    public func clearDiskCache(completion handler: (()->())? = nil) {
         ioQueue.async {
             do {
                 try self.fileManager.removeItem(atPath: self.diskCachePath)
@@ -429,7 +429,7 @@ open class ImageCache {
     
     - parameter completionHandler: Called after the operation completes.
     */
-    open func cleanExpiredDiskCache(completion handler: (()->())? = nil) {
+    public func cleanExpiredDiskCache(completion handler: (()->())? = nil) {
         
         // Do things in cocurrent io queue
         ioQueue.async {
@@ -565,7 +565,7 @@ open class ImageCache {
     ///   - key: Key for the image.
     ///   - identifier: Processor identifier which used for this image. Default is empty string.
     /// - Returns: A `CacheType` instance which indicates the cache status. `.none` means the image is not in cache yet.
-    open func imageCachedType(forKey key: String, processorIdentifier identifier: String = "") -> CacheType {
+    public func imageCachedType(forKey key: String, processorIdentifier identifier: String = "") -> CacheType {
         let computedKey = key.computedKey(with: identifier)
         
         if memoryCache.object(forKey: computedKey as NSString) != nil {
@@ -594,7 +594,7 @@ open class ImageCache {
     
      - returns: Corresponding hash.
     */
-    open func hash(forKey key: String, processorIdentifier identifier: String = "") -> String {
+    public func hash(forKey key: String, processorIdentifier identifier: String = "") -> String {
         let computedKey = key.computedKey(with: identifier)
         return cacheFileName(forComputedKey: computedKey)
     }
@@ -605,7 +605,7 @@ open class ImageCache {
     
     - parameter completionHandler: Called with the calculated size when finishes.
     */
-    open func calculateDiskCacheSize(completion handler: @escaping ((_ size: UInt) -> Void)) {
+    public func calculateDiskCacheSize(completion handler: @escaping ((_ size: UInt) -> Void)) {
         ioQueue.async {
             let (_, diskCacheSize, _) = self.travelCachedFiles(onlyForCacheSize: true)
             DispatchQueue.main.async {
@@ -624,12 +624,12 @@ open class ImageCache {
       that the image should be.
       You could use `isImageCached(forKey:)` method to check whether the image is cached under that key.
     */
-    open func cachePath(forKey key: String, processorIdentifier identifier: String = "") -> String {
+    public func cachePath(forKey key: String, processorIdentifier identifier: String = "") -> String {
         let computedKey = key.computedKey(with: identifier)
         return cachePath(forComputedKey: computedKey)
     }
 
-    open func cachePath(forComputedKey key: String) -> String {
+    public func cachePath(forComputedKey key: String) -> String {
         let fileName = cacheFileName(forComputedKey: key)
         return (diskCachePath as NSString).appendingPathComponent(fileName)
     }
@@ -681,7 +681,7 @@ extension ImageCache {
     @available(*, deprecated,
     message: "Use imageCachedType(forKey:processorIdentifier:) instead. CacheCheckResult.none indicates not being cached.",
     renamed: "imageCachedType(forKey:processorIdentifier:)")
-    open func isImageCached(forKey key: String, processorIdentifier identifier: String = "") -> CacheCheckResult {
+    public func isImageCached(forKey key: String, processorIdentifier identifier: String = "") -> CacheCheckResult {
         let result = imageCachedType(forKey: key, processorIdentifier: identifier)
         switch result {
         case .memory, .disk:

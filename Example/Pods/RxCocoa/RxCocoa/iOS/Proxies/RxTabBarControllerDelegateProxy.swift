@@ -16,7 +16,7 @@ extension UITabBarController: HasDelegate {
 }
 
 /// For more information take a look at `DelegateProxyType`.
-open class RxTabBarControllerDelegateProxy
+public class RxTabBarControllerDelegateProxy
     : DelegateProxy<UITabBarController, UITabBarControllerDelegate>
     , DelegateProxyType 
     , UITabBarControllerDelegate {

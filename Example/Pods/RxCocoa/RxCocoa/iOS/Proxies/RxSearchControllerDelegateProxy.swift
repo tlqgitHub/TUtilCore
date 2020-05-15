@@ -17,7 +17,7 @@ extension UISearchController: HasDelegate {
 
 /// For more information take a look at `DelegateProxyType`.
 @available(iOS 8.0, *)
-open class RxSearchControllerDelegateProxy
+public class RxSearchControllerDelegateProxy
     : DelegateProxy<UISearchController, UISearchControllerDelegate>
     , DelegateProxyType 
     , UISearchControllerDelegate {

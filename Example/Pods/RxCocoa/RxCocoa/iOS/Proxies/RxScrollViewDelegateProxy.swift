@@ -16,7 +16,7 @@ extension UIScrollView: HasDelegate {
 }
 
 /// For more information take a look at `DelegateProxyType`.
-open class RxScrollViewDelegateProxy
+public class RxScrollViewDelegateProxy
     : DelegateProxy<UIScrollView, UIScrollViewDelegate>
     , DelegateProxyType 
     , UIScrollViewDelegate {

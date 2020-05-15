@@ -16,7 +16,7 @@
     /// Base class for `DelegateProxyType` protocol.
     ///
     /// This implementation is not thread safe and can be used only from one thread (Main thread).
-    open class DelegateProxy<P: AnyObject, D>: _RXDelegateProxy {
+    public class DelegateProxy<P: AnyObject, D>: _RXDelegateProxy {
         public typealias ParentObject = P
         public typealias Delegate = D
 
@@ -87,7 +87,7 @@
          - parameter selector: Selector used to filter observed invocations of delegate methods.
          - returns: Observable sequence of arguments passed to `selector` method.
          */
-        open func sentMessage(_ selector: Selector) -> Observable<[Any]> {
+        public func sentMessage(_ selector: Selector) -> Observable<[Any]> {
             MainScheduler.ensureExecutingOnScheduler()
 
             let subject = _sentMessageForSelector[selector]
@@ -144,7 +144,7 @@
          - parameter selector: Selector used to filter observed invocations of delegate methods.
          - returns: Observable sequence of arguments passed to `selector` method.
          */
-        open func methodInvoked(_ selector: Selector) -> Observable<[Any]> {
+        public func methodInvoked(_ selector: Selector) -> Observable<[Any]> {
             MainScheduler.ensureExecutingOnScheduler()
 
             let subject = _methodInvokedForSelector[selector]
@@ -181,11 +181,11 @@
 
         // proxy
 
-        open override func _sentMessage(_ selector: Selector, withArguments arguments: [Any]) {
+        public override func _sentMessage(_ selector: Selector, withArguments arguments: [Any]) {
             _sentMessageForSelector[selector]?.on(.next(arguments))
         }
 
-        open override func _methodInvoked(_ selector: Selector, withArguments arguments: [Any]) {
+        public override func _methodInvoked(_ selector: Selector, withArguments arguments: [Any]) {
             _methodInvokedForSelector[selector]?.on(.next(arguments))
         }
 
@@ -193,7 +193,7 @@
         /// through `self`.
         ///
         /// - returns: Value of reference if set or nil.
-        open func forwardToDelegate() -> Delegate? {
+        public func forwardToDelegate() -> Delegate? {
             return castOptionalOrFatalError(self._forwardToDelegate)
         }
 
@@ -202,7 +202,7 @@
         ///
         /// - parameter forwardToDelegate: Reference of delegate that receives all messages through `self`.
         /// - parameter retainDelegate: Should `self` retain `forwardToDelegate`.
-        open func setForwardToDelegate(_ delegate: Delegate?, retainDelegate: Bool) {
+        public func setForwardToDelegate(_ delegate: Delegate?, retainDelegate: Bool) {
             #if DEBUG // 4.0 all configurations
                 MainScheduler.ensureExecutingOnScheduler()
             #endif
@@ -224,7 +224,7 @@
                 || (_methodInvokedForSelector[selector]?.hasObservers ?? false)
         }
 
-        override open func responds(to aSelector: Selector!) -> Bool {
+        override public func responds(to aSelector: Selector!) -> Bool {
             return super.responds(to: aSelector)
                 || (self._forwardToDelegate?.responds(to: aSelector) ?? false)
                 || (self.voidDelegateMethodsContain(aSelector) && self.hasObservers(selector: aSelector))

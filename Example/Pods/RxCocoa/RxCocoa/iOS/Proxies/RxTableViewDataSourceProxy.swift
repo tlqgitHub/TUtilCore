@@ -31,7 +31,7 @@ final class TableViewDataSourceNotSet
 }
 
 /// For more information take a look at `DelegateProxyType`.
-open class RxTableViewDataSourceProxy
+public class RxTableViewDataSourceProxy
     : DelegateProxy<UITableView, UITableViewDataSource>
     , DelegateProxyType 
     , UITableViewDataSource {
@@ -65,7 +65,7 @@ open class RxTableViewDataSourceProxy
     }
 
     /// For more information take a look at `DelegateProxyType`.
-    open override func setForwardToDelegate(_ forwardToDelegate: UITableViewDataSource?, retainDelegate: Bool) {
+    public override func setForwardToDelegate(_ forwardToDelegate: UITableViewDataSource?, retainDelegate: Bool) {
         _requiredMethodsDataSource = forwardToDelegate  ?? tableViewDataSourceNotSet
         super.setForwardToDelegate(forwardToDelegate, retainDelegate: retainDelegate)
     }

@@ -211,7 +211,7 @@ extension AuthenticationChallengeResponsable {
 }
 
 /// `ImageDownloader` represents a downloading manager for requesting the image with a URL from server.
-open class ImageDownloader {
+public class ImageDownloader {
     
     class ImageFetchLoad {
         var contents = [(callback: CallbackPair, options: KingfisherOptionsInfo)]()
@@ -224,16 +224,16 @@ open class ImageDownloader {
     
     // MARK: - Public property
     /// The duration before the download is timeout. Default is 15 seconds.
-    open var downloadTimeout: TimeInterval = 15.0
+    public var downloadTimeout: TimeInterval = 15.0
     
     /// A set of trusted hosts when receiving server trust challenges. A challenge with host name contained in this set will be ignored. 
     /// You can use this set to specify the self-signed site. It only will be used if you don't specify the `authenticationChallengeResponder`. 
     /// If `authenticationChallengeResponder` is set, this property will be ignored and the implemention of `authenticationChallengeResponder` will be used instead.
-    open var trustedHosts: Set<String>?
+    public var trustedHosts: Set<String>?
     
     /// Use this to set supply a configuration for the downloader. By default, NSURLSessionConfiguration.ephemeralSessionConfiguration() will be used. 
     /// You could change the configuration before a downloaing task starts. A configuration without persistent storage for caches is requsted for downloader working correctly.
-    open var sessionConfiguration = URLSessionConfiguration.ephemeral {
+    public var sessionConfiguration = URLSessionConfiguration.ephemeral {
         didSet {
             session?.invalidateAndCancel()
             session = URLSession(configuration: sessionConfiguration, delegate: sessionHandler, delegateQueue: OperationQueue.main)
@@ -241,17 +241,17 @@ open class ImageDownloader {
     }
     
     /// Whether the download requests should use pipeling or not. Default is false.
-    open var requestsUsePipelining = false
+    public var requestsUsePipelining = false
     
     fileprivate let sessionHandler: ImageDownloaderSessionHandler
     fileprivate var session: URLSession?
     
     /// Delegate of this `ImageDownloader` object. See `ImageDownloaderDelegate` protocol for more.
-    open weak var delegate: ImageDownloaderDelegate?
+    public weak var delegate: ImageDownloaderDelegate?
     
     /// A responder for authentication challenge. 
     /// Downloader will forward the received authentication challenge for the downloading session to this responder.
-    open weak var authenticationChallengeResponder: AuthenticationChallengeResponsable?
+    public weak var authenticationChallengeResponder: AuthenticationChallengeResponsable?
     
     // MARK: - Internal property
     let barrierQueue: DispatchQueue
@@ -311,7 +311,7 @@ open class ImageDownloader {
      - returns: A downloading task. You could call `cancel` on it to stop the downloading process.
      */
     @discardableResult
-    open func downloadImage(with url: URL,
+    public func downloadImage(with url: URL,
                        retrieveImageTask: RetrieveImageTask? = nil,
                        options: KingfisherOptionsInfo? = nil,
                        progressBlock: ImageDownloaderProgressBlock? = nil,

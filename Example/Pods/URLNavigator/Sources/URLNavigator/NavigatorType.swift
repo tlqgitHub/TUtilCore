@@ -17,7 +17,7 @@ public protocol NavigatorType {
   /// Registers a view controller factory to the URL pattern.
   func register(_ pattern: URLPattern, _ factory: @escaping ViewControllerFactory)
 
-  /// Registers an URL open handler to the URL pattern.
+  /// Registers an URL public handler to the URL pattern.
   func handle(_ pattern: URLPattern, _ factory: @escaping URLOpenHandlerFactory)
 
   /// Returns a matching view controller from the specified URL.
@@ -66,7 +66,7 @@ public protocol NavigatorType {
   @discardableResult
   func presentViewController(_ viewController: UIViewController, wrap: UINavigationController.Type?, from: UIViewControllerType?, animated: Bool, completion: (() -> Void)?) -> UIViewController?
 
-  /// Executes an URL open handler.
+  /// Executes an URL public handler.
   ///
   /// - note: It is not a good idea to use this method directly because this method requires all
   ///         parameters. This method eventually gets called when opening an url, so it's

@@ -34,7 +34,7 @@ final class CollectionViewDataSourceNotSet
 }
 
 /// For more information take a look at `DelegateProxyType`.
-open class RxCollectionViewDataSourceProxy
+public class RxCollectionViewDataSourceProxy
     : DelegateProxy<UICollectionView, UICollectionViewDataSource>
     , DelegateProxyType 
     , UICollectionViewDataSource {
@@ -68,7 +68,7 @@ open class RxCollectionViewDataSourceProxy
     }
 
     /// For more information take a look at `DelegateProxyType`.
-    open override func setForwardToDelegate(_ forwardToDelegate: UICollectionViewDataSource?, retainDelegate: Bool) {
+    public override func setForwardToDelegate(_ forwardToDelegate: UICollectionViewDataSource?, retainDelegate: Bool) {
         _requiredMethodsDataSource = forwardToDelegate ?? collectionViewDataSourceNotSet
         super.setForwardToDelegate(forwardToDelegate, retainDelegate: retainDelegate)
     }

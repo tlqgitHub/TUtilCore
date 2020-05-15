@@ -15,7 +15,7 @@
         public typealias Delegate = UIPickerViewDelegate
     }
 
-    open class RxPickerViewDelegateProxy
+    public class RxPickerViewDelegateProxy
         : DelegateProxy<UIPickerView, UIPickerViewDelegate>
         , DelegateProxyType 
         , UIPickerViewDelegate {

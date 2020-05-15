@@ -7,7 +7,7 @@
 //
 
 /// Base class for virtual time schedulers using a priority queue for scheduled items.
-open class VirtualTimeScheduler<Converter: VirtualTimeConverterType>
+public class VirtualTimeScheduler<Converter: VirtualTimeConverterType>
     : SchedulerType {
 
     public typealias VirtualTime = Converter.VirtualTimeUnit
@@ -123,7 +123,7 @@ open class VirtualTimeScheduler<Converter: VirtualTimeConverterType>
     }
 
     /// Adjusts time of scheduling before adding item to schedule queue.
-    open func adjustScheduledTime(_ time: Converter.VirtualTimeUnit) -> Converter.VirtualTimeUnit {
+    public func adjustScheduledTime(_ time: Converter.VirtualTimeUnit) -> Converter.VirtualTimeUnit {
         return time
     }
 

@@ -10,7 +10,7 @@ import UIKit
 import ModelProtocol
 import RxSwift
 
-open class Base_Vc: UIViewController {
+public class Base_Vc: UIViewController {
     
     public var disposeBag = DisposeBag()
     
@@ -25,7 +25,7 @@ open class Base_Vc: UIViewController {
     }
     
     
-    open override  func viewDidLoad() {
+    public override  func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
         /// 界面主题设置
@@ -35,15 +35,15 @@ open class Base_Vc: UIViewController {
         
     }
     
-    open override  func viewWillAppear(_ animated: Bool) {
+    public override  func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    open override  func viewWillDisappear(_ animated: Bool) {
+    public override  func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
     
-    open override  func didReceiveMemoryWarning() {
+    public override  func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -52,32 +52,32 @@ open class Base_Vc: UIViewController {
     /**
      自定义leftBarButtonItem
      */
-    open func customLeftBarButtonItem()  {
+    public func customLeftBarButtonItem()  {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "iconfontback"), style: .plain, target: self, action: #selector(backToView))
     }
     /**
      自定义返回上级界面
      */
-    @objc open  func backToView()  {
+    @objc public  func backToView()  {
         _ = self.navigationController?.popViewController(animated: true)
     }
     
     /**
      界面基础设置
      */
-    open func setupUI() {
+    public func setupUI() {
         
     }
     /**
      app 主题 设置
      */
-    open func setViewTheme(){
+    public func setViewTheme(){
         
     }
     /**
      绑定到viewmodel 设置
      */
-    open func bindToViewModel(){
+    public func bindToViewModel(){
         
     }
 }

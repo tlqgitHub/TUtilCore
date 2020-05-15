@@ -16,7 +16,7 @@ extension UISearchBar: HasDelegate {
 }
 
 /// For more information take a look at `DelegateProxyType`.
-open class RxSearchBarDelegateProxy
+public class RxSearchBarDelegateProxy
     : DelegateProxy<UISearchBar, UISearchBarDelegate>
     , DelegateProxyType 
     , UISearchBarDelegate {

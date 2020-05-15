@@ -3,7 +3,7 @@ import Foundation
 /// URLMatcher provides a way to match URLs against a list of specified patterns.
 ///
 /// URLMatcher extracts the pattern and the values from the URL if possible.
-open class URLMatcher {
+public class URLMatcher {
   public typealias URLPattern = String
   public typealias URLValueConverter = (_ pathComponents: [String], _ index: Int) -> Any?
 
@@ -25,7 +25,7 @@ open class URLMatcher {
     }
   ]
 
-  open var valueConverters: [String: URLValueConverter] = URLMatcher.defaultURLValueConverters
+  public var valueConverters: [String: URLValueConverter] = URLMatcher.defaultURLValueConverters
 
   public init() {
     // 🔄 I'm an URLMatcher!
@@ -46,7 +46,7 @@ open class URLMatcher {
   ///
   /// - returns: A `URLMatchComponents` struct that holds the URL pattern string, a dictionary of
   ///            the URL placeholder values.
-  open func match(_ url: URLConvertible, from candidates: [URLPattern]) -> URLMatchResult? {
+  public func match(_ url: URLConvertible, from candidates: [URLPattern]) -> URLMatchResult? {
     let url = self.normalizeURL(url)
     let scheme = url.urlValue?.scheme
     let stringPathComponents = self.stringPathComponents(from :url)

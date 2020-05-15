@@ -12,7 +12,7 @@ import UIKit
 import RxSwift
 
 /// For more information take a look at `DelegateProxyType`.
-open class RxCollectionViewDelegateProxy
+public class RxCollectionViewDelegateProxy
     : RxScrollViewDelegateProxy
     , UICollectionViewDelegate
     , UICollectionViewDelegateFlowLayout {

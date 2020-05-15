@@ -11,7 +11,7 @@ import SnapKit
 import RxSwift
 
 /// 网络错误等断网提示的界面
-open class ErrorPageView: UIView {
+public class ErrorPageView: UIView {
     
     /// UI控件
     var error_ImgV = UIImageView()
@@ -76,10 +76,10 @@ open class ErrorPageView: UIView {
         self.reload_Btn.rx.tap.bind(to: self.reloadSubject).disposed(by: disposeBag)
         
     }
-    open override func awakeFromNib() {
+    public override func awakeFromNib() {
         setupSubviews()
     }
-    open override func draw(_ rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         
     }
     public override init(frame: CGRect) {
