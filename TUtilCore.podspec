@@ -32,6 +32,10 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'TUtilCore/Classes/**/*'
+  s.source_files = 'TUtilCore/**/*.{h,swift}'
+  s.resource_bundles = {
+      'TUtilCore' => ['TUtilCore/**/*.{xcassets,storyboard}']
+  }
   
   # s.resource_bundles = {
   #   'TUtilCore' => ['TUtilCore/Assets/*.png']
