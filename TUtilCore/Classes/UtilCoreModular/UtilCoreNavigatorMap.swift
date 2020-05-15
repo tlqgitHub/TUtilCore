@@ -119,7 +119,7 @@ extension String {
             var url = ""
             ///如果以 '/'开头则需要加上本服务域名
             if that.hasPrefix("/") {
-                url = UtilCore.sharedInstance.baseUrl + that
+                url = TUtilCore.sharedInstance.baseUrl + that
             }else{
                 url = that.getUrlStr(param: param)
             }
@@ -164,5 +164,5 @@ public func showMsg(_ message:String?) -> Void {
 }
 // 通过状态吗做提示
 public func showMsg(_ codeMsg:Int) -> Void {
-    showMsg(UtilCore.alertmsg[codeMsg]?.msgtitle ?? "")
+//    showMsg(UtilCore.alertmsg[codeMsg]?.msgtitle ?? "")
 }

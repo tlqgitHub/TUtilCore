@@ -31,7 +31,7 @@ extension MBProgressHUD{
     }
     public  static func eme_showActivityIndicator(_ view:UIView , type:NVActivityIndicatorType = .ballScaleMultiple) -> MBProgressHUD {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
-        let loading = NVActivityIndicatorView(frame: CGRect(x: view.center.x, y: view.center.y, width: 50, height: 50), type:type ,color:UtilCore.loadingBgColor)
+        let loading = NVActivityIndicatorView(frame: CGRect(x: view.center.x, y: view.center.y, width: 50, height: 50), type:type ,color:TUtilCore.loadingBgColor)
         loading.startAnimating()
         hud.mode = .customView
         hud.bezelView.color = UIColor.clear
@@ -48,9 +48,9 @@ extension MBProgressHUD{
     /// - Returns:
     public static func eme_showCustomIndicator(_ view:UIView) -> MBProgressHUD {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
-        switch UtilCore.loadingView {
+        switch TUtilCore.loadingView {
         case let .activityIndicatorType(type):
-            let loading = NVActivityIndicatorView(frame: CGRect(x: view.center.x, y: view.center.y, width: 50, height: 50), type:type ,color:UtilCore.loadingBgColor)
+            let loading = NVActivityIndicatorView(frame: CGRect(x: view.center.x, y: view.center.y, width: 50, height: 50), type:type ,color:TUtilCore.loadingBgColor)
             loading.startAnimating()
             hud.mode = .customView
             hud.bezelView.color = UIColor.clear
@@ -63,7 +63,7 @@ extension MBProgressHUD{
             hud.mode = .customView
             hud.bezelView.color = UIColor.clear
             hud.customView = subloading
-            hud.backgroundColor = UtilCore.loadingBgColor
+            hud.backgroundColor = TUtilCore.loadingBgColor
             return hud
         }
     }

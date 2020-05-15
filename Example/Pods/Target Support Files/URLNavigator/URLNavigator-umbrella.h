@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "TUtilCore-Bridging-Header.h"
 
-FOUNDATION_EXPORT double TUtilCoreVersionNumber;
-FOUNDATION_EXPORT const unsigned char TUtilCoreVersionString[];
+FOUNDATION_EXPORT double URLNavigatorVersionNumber;
+FOUNDATION_EXPORT const unsigned char URLNavigatorVersionString[];
 

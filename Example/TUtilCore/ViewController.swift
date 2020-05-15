@@ -10,7 +10,7 @@ import UIKit
 
 import TUtilCore
 
-class ViewController: UIViewController {
+class ViewController: Base_Vc {
 
     override func viewDidLoad() {
         super.viewDidLoad()

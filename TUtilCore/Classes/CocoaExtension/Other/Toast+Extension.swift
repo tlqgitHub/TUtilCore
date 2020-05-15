@@ -27,7 +27,7 @@ extension UIView {
      通过错误弹出提示框
      */
     public func toastErrorCode(_ errorCode: Int){
-        self.toast(UtilCore.alertmsg[errorCode]?.msgtitle ?? "")
+        self.toast(TUtilCore.alertmsg[errorCode]?.msgtitle ?? "")
     
     }
     /**
@@ -42,7 +42,7 @@ extension UIView {
      通过错误弹出提示框
      */
     public func toastCenterErrorCode(_ errorCode: Int){
-        self.toastCenter(UtilCore.alertmsg[errorCode]?.msgtitle ?? "")
+        self.toastCenter(TUtilCore.alertmsg[errorCode]?.msgtitle ?? "")
         
     }
     /**
@@ -56,7 +56,7 @@ extension UIView {
      通过错误弹出提示框
      */
     public func toastBottomErrorCode(_ errorCode: Int){
-        self.toastBottom(UtilCore.alertmsg[errorCode]?.msgtitle ?? "")
+        self.toastBottom(TUtilCore.alertmsg[errorCode]?.msgtitle ?? "")
         
     }
     /**
@@ -73,26 +73,26 @@ extension UIView {
      - parameter error:
      */
     public func toastError(_ error:MikerError){
-        if error.code == UtilCore.sharedInstance.toLoginErrorCode {
+        if error.code == TUtilCore.sharedInstance.toLoginErrorCode {
             self.toastCompletion(error.message){ _ in
                 /**
                  *  在这块 就是跳转到登陆模块,如果已经跳转就不需要直接忽略 否则 先将AppData.sharedInstance.isHasToLoginVc改为true然后再跳转
                  */
-                if UtilCore.sharedInstance.isHasToLoginVc == false {
+                if TUtilCore.sharedInstance.isHasToLoginVc == false {
                     _ = "login".openURL()
                 }
             }
-        }else if error.code == UtilCore.sharedInstance.toForcedupdatingErrorCode{
+        }else if error.code == TUtilCore.sharedInstance.toForcedupdatingErrorCode{
             /*
             表示版本强制更新
              */
-            if UtilCore.sharedInstance.isHasForcedupdating == false {
-                UtilCore.sharedInstance.isHasForcedupdating = true
+            if TUtilCore.sharedInstance.isHasForcedupdating == false {
+                TUtilCore.sharedInstance.isHasForcedupdating = true
                 _ = "forcedupdating".openURL(["message":error.message])
             }
             
         }else{
-            if UtilCore.sharedInstance.isDebug {
+            if TUtilCore.sharedInstance.isDebug {
                 self.toast(error.message)
             }else{
                  ///表示是生产模式
@@ -100,7 +100,7 @@ extension UIView {
                 if code.hasPrefix("2") {
                     self.toast(error.message)
                 }else{
-                    self.toast(UtilCore.sharedInstance.errorMsg)
+                    self.toast(TUtilCore.sharedInstance.errorMsg)
                 }
             }
         }
@@ -110,10 +110,10 @@ extension UIView {
      - parameter error:
      */
     public func toastErrorCompletion(_ error:MikerError,completion: ((_ didTap: Bool) -> Void)?){
-        if error.code == UtilCore.sharedInstance.toLoginErrorCode {
+        if error.code == TUtilCore.sharedInstance.toLoginErrorCode {
             self.toastCompletion(error.message, completion: completion)
         }else{
-            if UtilCore.sharedInstance.isDebug {
+            if TUtilCore.sharedInstance.isDebug {
                 self.toastCompletion(error.message, completion: completion)
             }else{
                 ///表示是生产模式
@@ -121,7 +121,7 @@ extension UIView {
                 if code.hasPrefix("2") {
                     self.toastCompletion(error.message, completion: completion)
                 }else{
-                    self.toastCompletion(UtilCore.sharedInstance.errorMsg, completion: completion)
+                    self.toastCompletion(TUtilCore.sharedInstance.errorMsg, completion: completion)
                 }
             }
         }
@@ -148,7 +148,7 @@ extension Base_Vc{
                 if error.code == -1009 {
                     errorMsg = "没有可用的网络"
                 }
-                if let emptyView = baseVc.view.viewWithTag(UtilCore.ErrorPageViewTag) as? ErrorPageView {
+                if let emptyView = baseVc.view.viewWithTag(TUtilCore.ErrorPageViewTag) as? ErrorPageView {
                     emptyView.isHidden = false
                     emptyView.errorStr = errorMsg
                 }else{

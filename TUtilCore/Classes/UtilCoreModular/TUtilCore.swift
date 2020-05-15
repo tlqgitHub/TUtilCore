@@ -1,8 +1,7 @@
 //
-//  UtilCore.swift
+//  TUtilCore.swift
 //  Pods
 //
-//  Created by eme on 2017/1/6.
 //
 //
 
@@ -12,12 +11,12 @@ import ModelProtocol
 import NVActivityIndicatorView
 
 /// 本模块的名称， 本模块的storyboard 名称必须 与模块名称相同 ,已经用于静态资源的加载回用到
-let modularName = "UtilCore"
+let modularName = "TUtilCore"
 
-public  class UtilCore {
-    public static var sharedInstance : UtilCore {
+public  class TUtilCore {
+    public static var sharedInstance : TUtilCore {
         struct Static {
-            static let instance : UtilCore = UtilCore()
+            static let instance : TUtilCore = TUtilCore()
         }
         let utilCore = Static.instance
         utilCore.update()
@@ -26,25 +25,25 @@ public  class UtilCore {
     ///用于提供弹出信息
     static public var alertmsg:Dictionary<Int,(msgcode:Int,msgtitle:String,msginfo:String)>{
         get{
-            for dict  in UtilCore.msg {
+            for dict  in TUtilCore.msg {
                 alert_msg[dict.0] = dict.1
             }
             return alert_msg
         }
         set (newValue){
-            UtilCore.msg = newValue
+            TUtilCore.msg = newValue
         }
     }
     /// 登陆模块的storyboard
     public static var storyboard:UIStoryboard{
         get{
-            return UIStoryboard(name: modularName, bundle: UtilCore.bundle)
+            return UIStoryboard(name: modularName, bundle: TUtilCore.bundle)
         }
     }
     /// 模块中的 扫一扫vc
     public static var scanVc:Scan_Vc{
         get{
-            return UtilCore.storyboard.instantiateViewController(withIdentifier: "Scan_Vc") as! Scan_Vc
+            return TUtilCore.storyboard.instantiateViewController(withIdentifier: "Scan_Vc") as! Scan_Vc
         }
     }
     ///供其他模块使用
@@ -101,7 +100,7 @@ public  class UtilCore {
     
     
     func update() -> Void {
-        guard let path = Bundle.main.path(forResource: "UtilCore", ofType: "plist") else {
+        guard let path = Bundle.main.path(forResource: "TUtilCore", ofType: "plist") else {
             return
         }
         guard let dict = NSDictionary(contentsOfFile:path) else {

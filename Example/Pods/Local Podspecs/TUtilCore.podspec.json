@@ -19,7 +19,12 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "TUtilCore/Classes/**/*",
+  "source_files": "TUtilCore/**/*.{h,swift}",
+  "resource_bundles": {
+    "TUtilCore": [
+      "TUtilCore/**/*.{xcassets,storyboard}"
+    ]
+  },
   "frameworks": "UIKit",
   "dependencies": {
     "ModelProtocol": [

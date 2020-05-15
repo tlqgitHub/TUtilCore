@@ -16,7 +16,7 @@ open class Base_Vc: UIViewController {
     
     public lazy var errorPageView: ErrorPageView = {
         let view = ErrorPageView()
-        view.tag = UtilCore.ErrorPageViewTag
+        view.tag = TUtilCore.ErrorPageViewTag
         return view
     }()
     

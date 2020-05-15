@@ -40,7 +40,7 @@ open class ErrorPageView: UIView {
     
     func setupSubviews() {
         self.backgroundColor = UIColor(hex: "ffffff")
-        error_ImgV.image = UIImage(named: imgStr, in: UtilCore.bundle, compatibleWith: nil)
+        error_ImgV.image = UIImage(named: imgStr, in: TUtilCore.bundle, compatibleWith: nil)
         self.addSubview(self.error_ImgV)
         error_Lb.text = errorStr
         error_Lb.textAlignment = .center

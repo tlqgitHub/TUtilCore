@@ -85,8 +85,8 @@ public class Web_Vc: Base_Vc {
             guard let response = response else{
                 return
             }
-            UtilCore.sharedInstance.activeData[UtilCore.sharedInstance.fieldValue] = UtilCore.sharedInstance.activeid
-            response(UtilCore.sharedInstance.activeData)
+            TUtilCore.sharedInstance.activeData[TUtilCore.sharedInstance.fieldValue] = TUtilCore.sharedInstance.activeid
+            response(TUtilCore.sharedInstance.activeData)
         })
         self.bridge?.registerHandler("error", handler:{  data , response in
             if let data = data{
@@ -128,7 +128,7 @@ public class Web_Vc: Base_Vc {
                 self.view.showLoading()
             }
             setHttpCookies(url)
-            request.setValue(UtilCore.sharedInstance.activeid, forHTTPHeaderField:UtilCore.sharedInstance.fieldValue)
+            request.setValue(TUtilCore.sharedInstance.activeid, forHTTPHeaderField:TUtilCore.sharedInstance.fieldValue)
             self.web_Wb.loadRequest(request as URLRequest)
         }
     }
@@ -154,8 +154,8 @@ public class Web_Vc: Base_Vc {
     public func  setHttpCookies(_ url:URL) {
         //创建一个HTTPCookie对象
         var props:[HTTPCookiePropertyKey:Any] = [:]
-        props[HTTPCookiePropertyKey.name] = UtilCore.sharedInstance.fieldValue
-        props[HTTPCookiePropertyKey.value] = UtilCore.sharedInstance.activeid
+        props[HTTPCookiePropertyKey.name] = TUtilCore.sharedInstance.fieldValue
+        props[HTTPCookiePropertyKey.value] = TUtilCore.sharedInstance.activeid
         props[HTTPCookiePropertyKey.path] = url.path
         props[HTTPCookiePropertyKey.domain] = url.host
         //90天后过期
