@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TUtilCore'
-  s.version          = '0.5.0'
+  s.version          = '0.5.2'
   s.summary          = 'TUtilCore.项目公用基础库'
   s.swift_version    = '5.0'
 
